@@ -18,7 +18,7 @@ import Animated, {
 import {FixData} from './data';
 import {PieChartData} from './PieChart';
 
-export const LearnRectCircle = ({size = 300, strokeWidth = 20}: any) => {
+export const LearnHalfRectCircle = ({size = 300, strokeWidth = 20}: any) => {
   const progress = useSharedValue(0);
   const [data, setData] = useState<PieChartData>([]);
 
@@ -52,11 +52,11 @@ export const LearnRectCircle = ({size = 300, strokeWidth = 20}: any) => {
           width={size}
           height={size}
           viewBox={`0 0 ${size} ${size}`}
-          style={
-            {
-              // backgroundColor: 'gray',
-            }
-          }>
+          style={{
+            transform: [{rotateZ: '90deg'}],
+
+            // backgroundColor: 'gray',
+          }}>
           <Rect
             fill={'none'}
             width={size - strokeWidth}
@@ -67,10 +67,12 @@ export const LearnRectCircle = ({size = 300, strokeWidth = 20}: any) => {
             stroke={'green'}
             strokeWidth={strokeWidth}
             strokeDasharray={pi}
-            strokeDashoffset={pi * (1 - Percent1)}
+            strokeDashoffset={pi * (1 - Percent1 / 2)}
             originX={halfSize}
             originY={halfSize}
-            rotation={0}
+            rotation={
+              (Percent1 + Percent2X + Percent2X + Percent1 + Percent1 / 2) * 360
+            }
           />
 
           <Rect
@@ -83,10 +85,12 @@ export const LearnRectCircle = ({size = 300, strokeWidth = 20}: any) => {
             stroke={'lightgreen'}
             strokeWidth={strokeWidth}
             strokeDasharray={pi}
-            strokeDashoffset={pi * (1 - Percent2X)}
+            strokeDashoffset={pi * (1 - Percent2X / 2)}
             originX={halfSize}
             originY={halfSize}
-            rotation={Percent1 * 360}
+            rotation={
+              (Percent1 + Percent2X + Percent2X + Percent1 + Percent1) * 360
+            }
           />
           <Rect
             fill={'none'}
@@ -98,10 +102,12 @@ export const LearnRectCircle = ({size = 300, strokeWidth = 20}: any) => {
             stroke={'skyblue'}
             strokeWidth={strokeWidth}
             strokeDasharray={pi}
-            strokeDashoffset={pi * (1 - Percent2X)}
+            strokeDashoffset={pi * (1 - Percent1)}
             originX={halfSize}
             originY={halfSize}
-            rotation={(Percent1 + Percent2X) * 360}
+            rotation={
+              (Percent1 + Percent2X + Percent2X + Percent2X + Percent1) * 360
+            }
           />
           <Rect
             fill={'none'}
@@ -113,10 +119,12 @@ export const LearnRectCircle = ({size = 300, strokeWidth = 20}: any) => {
             stroke={'gray'}
             strokeWidth={strokeWidth}
             strokeDasharray={pi}
-            strokeDashoffset={pi * (1 - Percent4X)}
+            strokeDashoffset={pi * (1 - Percent2X)}
             originX={halfSize}
             originY={halfSize}
-            rotation={(Percent1 + Percent2X + Percent2X) * 360}
+            rotation={
+              (Percent1 + Percent2X + Percent2X + Percent2X + Percent2X) * 360
+            }
           />
           <Rect
             fill={'none'}
@@ -128,10 +136,12 @@ export const LearnRectCircle = ({size = 300, strokeWidth = 20}: any) => {
             rx={halfSize}
             strokeWidth={strokeWidth}
             strokeDasharray={pi}
-            strokeDashoffset={pi * (1 - Percent4X)}
+            strokeDashoffset={pi * (1 - Percent2X)}
             originX={halfSize}
             originY={halfSize}
-            rotation={(Percent1 + Percent2X + Percent2X + Percent4X) * 360}
+            rotation={
+              (Percent1 + Percent2X + Percent2X + Percent4X + Percent2X) * 360
+            }
           />
         </Svg>
       </View>

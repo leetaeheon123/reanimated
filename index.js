@@ -26,10 +26,11 @@ import {SnappingList} from './SnappingList';
 
 import LayoutHandle from './LayoutHandle';
 import {LearnRectCircle} from './LearnRectCircle';
-
+import {LearnHalfRectCircle} from './LearnHalfRectCircle';
+import {LearnHalfRectCircleLine} from './LearnHalfRectCircleLine';
 const AppWithGestureHandler = () => (
   <GestureHandlerRootView>
-    <LearnRectCircle />
+    <LearnHalfRectCircleLine />
   </GestureHandlerRootView>
 );
 
