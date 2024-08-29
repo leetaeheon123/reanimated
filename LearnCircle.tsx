@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import {View, Text, StyleSheet, Button, SafeAreaView} from 'react-native';
-import Svg, {Circle} from 'react-native-svg';
+import Svg, {Circle, Rect} from 'react-native-svg';
 import Animated, {
   interpolate,
   useAnimatedProps,
@@ -92,6 +92,13 @@ export const LearnCircle = ({
   const radius = (size - strokeWidth) / 2;
   const pi = 2 * Math.PI * radius;
 
+  // yellow 4, green 1, navy 2, gray 4, lightgreen 2
+  // 7.7, 15.4, 30.8
+
+  const Percent1 = 7.7 / 100;
+  const Percent2X = Percent1 * 2;
+  const Percent4X = Percent1 * 4;
+
   return (
     <SafeAreaView
       style={{
@@ -125,16 +132,66 @@ export const LearnCircle = ({
             r={radius}
             cx={halfSize}
             cy={halfSize}
-            stroke={'red'}
+            stroke={'green'}
             strokeWidth={strokeWidth}
             strokeDasharray={pi}
-            strokeDashoffset={pi * 0.75}
+            strokeDashoffset={pi * (1 - Percent1)}
             originX={halfSize}
             originY={halfSize}
-            rotation={90}
-            // strokeDashoffset={314.16}
-            // strokeDasharray={'314.16 50'}
-          ></Circle>
+          />
+          <Circle
+            fill={'none'}
+            r={radius}
+            cx={halfSize}
+            cy={halfSize}
+            stroke={'lightgreen'}
+            strokeWidth={strokeWidth}
+            strokeDasharray={pi}
+            strokeDashoffset={pi * (1 - Percent2X)}
+            originX={halfSize}
+            originY={halfSize}
+            rotation={Percent1 * 360}
+          />
+          <Circle
+            fill={'none'}
+            r={radius}
+            cx={halfSize}
+            cy={halfSize}
+            stroke={'skyblue'}
+            strokeWidth={strokeWidth}
+            strokeDasharray={pi}
+            strokeDashoffset={pi * (1 - Percent2X)}
+            originX={halfSize}
+            originY={halfSize}
+            rotation={(Percent1 + Percent2X) * 360}
+          />
+          <Circle
+            fill={'none'}
+            r={radius}
+            cx={halfSize}
+            cy={halfSize}
+            stroke={'gray'}
+            strokeWidth={20}
+            strokeDasharray={pi}
+            strokeDashoffset={pi * (1 - Percent4X)}
+            originX={halfSize}
+            originY={halfSize}
+            rotation={(Percent1 + Percent2X + Percent2X) * 360}
+          />
+          <Rect
+            fill={'none'}
+            width={190}
+            height={190}
+            stroke={'yellow'}
+            rx={halfSize}
+            ry={halfSize}
+            strokeWidth={strokeWidth}
+            strokeDasharray={pi}
+            strokeDashoffset={pi * (1 - Percent4X)}
+            originX={halfSize}
+            originY={halfSize}
+            rotation={(Percent1 + Percent2X + Percent2X + Percent4X) * 361}
+          />
           {/* <Circle
             fill={'none'}
             r={radius}

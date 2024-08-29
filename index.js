@@ -27,7 +27,7 @@ import LayoutHandle from './LayoutHandle';
 
 const AppWithGestureHandler = () => (
   <GestureHandlerRootView>
-    <SnappingList />
+    <LearnCircle />
   </GestureHandlerRootView>
 );
 

@@ -119,7 +119,7 @@ export const SnappingList = ({componentId}) => {
         // onLayout={e => {
         //   console.log(e.layout);
         // }}
-        onLayout={handleLayoutChange} // Track layout changes
+        // onLayout={handleLayoutChange} // Track layout changes
       >
         {/* {renderContent()} */}
       </Modalize>
