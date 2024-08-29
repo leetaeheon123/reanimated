@@ -1,41 +1,9 @@
 import {PieChartData} from './PieChart';
 
-export const generatePieChartData = () => {
-  const itemsCount = Math.floor(Math.random() * 7) + 3;
-  const value = [];
-  for (let i = 0; i < itemsCount; i++) {
-    value.push(Math.floor(Math.random() * 60) + 40);
-  }
-
-  const total = value.reduce((a, b) => a + b, 0);
-
-  const data: PieChartData = [];
-  for (let i = 0; i < itemsCount; i++) {
-    const percent = value[i] / total;
-    data.push({
-      percent,
-      color: getRandomColor(),
-    });
-  }
-
-  return data;
-};
-
-const getRandomColor = () => {
-  let letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-};
-
 export const FixData = [
-  {color: '#D87057', percent: 0.3},
-  {color: '#055088', percent: 0.2},
-  {color: '#BF43BF', percent: 0.15},
-  {color: '#DB26D4', percent: 0.1},
-  {color: '#E1CFF2', percent: 0.1},
-  {color: '#AF5390', percent: 0.075},
-  {color: '#9A2002', percent: 0.075},
+  {color: 'green', percent: 0.077},
+  {color: 'lightgreen', percent: 0.154},
+  {color: 'navy', percent: 0.154},
+  {color: 'gray', percent: 0.308},
+  {color: 'yellow', percent: 0.308},
 ];

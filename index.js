@@ -18,16 +18,18 @@ import SemiCircleToLineAnimation from './SemiCircleToLineAnimation';
 import RectangleFromCircle from './RectangleFromCircle';
 
 import {LearnCircle} from './LearnCircle';
+import {LearnRect} from './LearnRect';
 import {TestRect} from './TestRect';
 import DraggableView from './DraggableView';
 import TestModal2 from './TestModal2';
 import {SnappingList} from './SnappingList';
 
 import LayoutHandle from './LayoutHandle';
+import {LearnRectCircle} from './LearnRectCircle';
 
 const AppWithGestureHandler = () => (
   <GestureHandlerRootView>
-    <LearnCircle />
+    <LearnRectCircle />
   </GestureHandlerRootView>
 );
 

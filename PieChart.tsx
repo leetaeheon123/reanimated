@@ -97,7 +97,8 @@ export const PieChart = ({size = 400, strokeWidth = 20}: PieChartProps) => {
       // angles.push(angle);
       console.log('angle', angle.toFixed(2));
       angle += item.percent * 360;
-      console.log('item.percent', item.percent.toFixed(2));
+      console.log('item.percent', item.percent(2));
+
       console.log('angle Added', angle.toFixed(2));
     });
 
